@@ -25,7 +25,7 @@ Possible questions that can be answered and visualized are the following:
 
 ```bash
 git clone https://github.com/ptrstn/technikum-big-data
-git cd technikum-big-data
+cd technikum-big-data
 pip install -r requirements.txt
 python main.py
 ```
