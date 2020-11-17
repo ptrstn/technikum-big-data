@@ -7,7 +7,6 @@ import requests
 UNIHAN_ZIP_URL = "https://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip"
 UNIHAN_BASE_PATH = pathlib.Path("data", "unihan")
 UNIHAN_FILE_PATTERN = "Unihan_*.txt"
-UNIHAN_FEATHER_FILE_NAME = "unihan.feather"
 
 
 def download_file(url, download_to_path, quiet=False):
