@@ -48,15 +48,3 @@ def read_all_unihan_files(base_path=UNIHAN_BASE_PATH):
     df.description = df.description.astype(str)
     df.reset_index(inplace=True, drop=True)
     return df
-
-
-def main():
-    print(f'Downloading Dataset...')
-    download_unihan_zip()
-    print(f'Reading Dataset...')
-    df = read_all_unihan_files()
-    print(df)
-
-
-if __name__ == '__main__':
-    main()

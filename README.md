@@ -26,6 +26,32 @@ Possible questions that can be answered and visualized are the following:
 ```bash
 git clone https://github.com/ptrstn/technikum-big-data
 cd technikum-big-data
-pip install -r requirements.txt
-python main.py
+pip install -e .
+```
+
+## Run
+
+```bash
+bigchina
+```
+
+```
+Downloading Dataset...
+Downloading https://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip to data/unihan/Unihan.zip...
+Extracting data/unihan/Unihan.zip to data/unihan...
+Reading Dataset...
+         unicode              field      description
+0         U+3402           kJIS0213          1,14,03
+1         U+3406           kJIS0213          2,01,13
+2         U+340C              kKPS1             3451
+3         U+341C              kKPS1             345F
+4         U+3425              kKPS1             346A
+...          ...                ...              ...
+1356823  U+2F9D0  kRSAdobe_Japan1_6  C+14068+149.7.9
+1356824  U+2F9DE  kRSAdobe_Japan1_6  C+20066+159.7.3
+1356825  U+2F9DF  kRSAdobe_Japan1_6  C+14069+159.7.9
+1356826  U+2F9F4  kRSAdobe_Japan1_6  C+15269+45.3.12
+1356827  U+2FA0E          kRSKangXi            196.9
+
+[1356828 rows x 3 columns]
 ```
