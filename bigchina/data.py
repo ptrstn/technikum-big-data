@@ -26,11 +26,12 @@ def extract_zip(zip_file_path, extract_to_path, quiet=False):
         zip_file.extractall(extract_to_path)
 
 
-def download_unihan_zip(base_path=UNIHAN_BASE_PATH, url=UNIHAN_ZIP_URL, quiet=False):
+def download_unihan_zip(base_path=UNIHAN_BASE_PATH, url=UNIHAN_ZIP_URL, force=False, quiet=False):
     file_name = pathlib.Path(url).name
     file_path = pathlib.Path(base_path, file_name)
-    download_file(url, file_path, quiet=quiet)
-    extract_zip(file_path, base_path, quiet=quiet)
+    if not file_path.exists() or force:
+        download_file(url, file_path, quiet=quiet)
+        extract_zip(file_path, base_path, quiet=quiet)
 
 
 def read_unihan_file(path):
