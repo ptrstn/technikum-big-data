@@ -36,7 +36,7 @@ def download_unihan_zip(base_path=UNIHAN_BASE_PATH, url=UNIHAN_ZIP_URL, force=Fa
 
 def read_unihan_file(path):
     column_names = ["unicode", "field", "description"]
-    return pandas.read_table(path, names=column_names, comment="#")
+    return pandas.read_csv(path, sep="\t", names=column_names, comment="#")
 
 
 def list_unihan_file_paths(base_path=UNIHAN_BASE_PATH):
