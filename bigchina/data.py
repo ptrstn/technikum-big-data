@@ -35,7 +35,7 @@ def extract_zip(zip_file_path, extract_to_path, quiet=False):
 
 
 def download_unihan_zip(
-        base_path=UNIHAN_BASE_PATH, url=UNIHAN_ZIP_URL, force=False, quiet=False
+    base_path=UNIHAN_BASE_PATH, url=UNIHAN_ZIP_URL, force=False, quiet=False
 ):
     file_name = pathlib.Path(url).name
     file_path = pathlib.Path(base_path, file_name)
