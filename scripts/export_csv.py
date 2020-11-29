@@ -1,8 +1,13 @@
 # This script loads in the Unihan data, transforms it and merges it with the HSK data
 # The resulting dataframe is then exported as data/unihan.csv
 
-from bigchina.data import read_all_unihan_files, read_all_hsk_files, merge_unihan_hsk
-from bigchina.transform import split_radical_additional_strokes_column, spread_unihan, extract_encode_glyph_columns
+from bigchina.data import read_all_unihan_files, read_all_hsk_files
+from bigchina.transform import (
+    split_radical_additional_strokes_column,
+    spread_unihan,
+    extract_encode_glyph_columns,
+    merge_unihan_hsk,
+)
 from bigchina.utils import rearrange_columns
 
 print("Reading unihan files...")
@@ -33,13 +38,13 @@ desired_columns = [
     "radical",
     "additional_strokes",
     "simplified_radical_indicator",
-    'simplified_variant',
-    'traditional_variant',
-    'semantic_variant',
-    'specialized_variant',
-    'z_variant',
-    'spoofing_variant',
-    'compatibility_variant',
+    "simplified_variant",
+    "traditional_variant",
+    "semantic_variant",
+    "specialized_variant",
+    "z_variant",
+    "spoofing_variant",
+    "compatibility_variant",
     "kTotalStrokes",
     "kFrequency",
     "hsk_level",

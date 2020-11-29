@@ -84,7 +84,3 @@ def list_hsk_file_paths(base_path=HSK_BASE_PATH):
 def read_all_hsk_files(base_path=HSK_BASE_PATH):
     file_paths = list_hsk_file_paths(base_path)
     return pandas.concat([read_hsk_file(path) for path in file_paths])
-
-
-def merge_unihan_hsk(dataframe, hsk_table):
-    return dataframe.merge(hsk_table, how="left", on="glyph")

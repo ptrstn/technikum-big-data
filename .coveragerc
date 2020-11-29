@@ -1,0 +1,6 @@
+[run]
+omit =
+    bigchina/__main__.py
+    venv/*
+    tests/*
+    setup.py

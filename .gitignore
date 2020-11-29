@@ -6,3 +6,6 @@ venv/
 .idea/
 .ipynb_checkpoints
 .Rproj.user
+htmlcov/
+.coverage
+.coverage.*

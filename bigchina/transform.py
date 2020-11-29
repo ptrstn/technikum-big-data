@@ -69,3 +69,7 @@ def split_radical_additional_strokes_column(dataframe):
     dataframe.additional_strokes = dataframe.additional_strokes.astype(int)
 
     return dataframe
+
+
+def merge_unihan_hsk(dataframe, hsk_table):
+    return dataframe.merge(hsk_table, how="left", on="glyph")
