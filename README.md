@@ -1,4 +1,5 @@
 [![Actions Status](https://github.com/ptrstn/technikum-big-data/workflows/Python%20package/badge.svg)](https://github.com/ptrstn/technikum-big-data/actions)
+[![codecov](https://codecov.io/gh/ptrstn/technikum-big-data/branch/master/graph/badge.svg?token=XrchtoPede)](https://codecov.io/gh/ptrstn/technikum-big-data)
 
 # Big Data & Machine Learning!
 
