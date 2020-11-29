@@ -8,6 +8,9 @@ UNIHAN_ZIP_URL = "https://www.unicode.org/Public/UCD/latest/ucd/Unihan.zip"
 UNIHAN_BASE_PATH = pathlib.Path("data", "unihan")
 UNIHAN_FILE_PATTERN = "Unihan_*.txt"
 
+HSK_BASE_PATH = pathlib.Path("data", "hsk")
+HSK_FILE_PATTERN = "hsk*.txt"
+
 
 def download_file(url, download_to_path, quiet=False):
     if not quiet:
@@ -26,7 +29,14 @@ def extract_zip(zip_file_path, extract_to_path, quiet=False):
         zip_file.extractall(extract_to_path)
 
 
-def download_unihan_zip(base_path=UNIHAN_BASE_PATH, url=UNIHAN_ZIP_URL, force=False, quiet=False):
+# ------------------------
+# Unihan
+# ------------------------
+
+
+def download_unihan_zip(
+        base_path=UNIHAN_BASE_PATH, url=UNIHAN_ZIP_URL, force=False, quiet=False
+):
     file_name = pathlib.Path(url).name
     file_path = pathlib.Path(base_path, file_name)
     if not file_path.exists() or force:
@@ -49,3 +59,32 @@ def read_all_unihan_files(base_path=UNIHAN_BASE_PATH):
     df.description = df.description.astype(str)
     df.reset_index(inplace=True, drop=True)
     return df
+
+
+# ------------------------
+# HSK
+# ------------------------
+
+
+def read_hsk_file(path):
+    hsk_level = pathlib.Path(path).name.lstrip("hsk").rstrip(".txt")
+    with open(path, "r") as file:
+        content = file.read().strip()
+        characters = [character for character in content]
+        dataframe = pandas.DataFrame(characters, columns=["glyph"])
+        dataframe.loc[:, "hsk_level"] = int(hsk_level)
+        dataframe.hsk_level = dataframe.hsk_level.astype("Int64")
+        return dataframe
+
+
+def list_hsk_file_paths(base_path=HSK_BASE_PATH):
+    return sorted(pathlib.Path(base_path).glob(HSK_FILE_PATTERN))
+
+
+def read_all_hsk_files(base_path=HSK_BASE_PATH):
+    file_paths = list_hsk_file_paths(base_path)
+    return pandas.concat([read_hsk_file(path) for path in file_paths])
+
+
+def merge_unihan_hsk(dataframe, hsk_table):
+    return dataframe.merge(hsk_table, how="left", on="glyph")
