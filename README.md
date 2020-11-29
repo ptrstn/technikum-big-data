@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/ptrstn/technikum-big-data/workflows/Python%20package/badge.svg)](https://github.com/ptrstn/technikum-big-data/actions)
+
 # Big Data & Machine Learning!
 
 This project deals with the analysis of the Unihan data set.
