@@ -1,30 +1,11 @@
 # This script loads in the Unihan data, transforms it and merges it with the HSK data
 # The resulting dataframe is then exported as data/unihan.csv
 
-from bigchina.data import read_all_unihan_files, read_all_hsk_files
-from bigchina.transform import (
-    split_radical_additional_strokes_column,
-    spread_unihan,
-    extract_encode_glyph_columns,
-    merge_unihan_hsk,
-)
+from bigchina import load_data
 from bigchina.utils import rearrange_columns
 
-print("Reading unihan files...")
-dataframe = read_all_unihan_files()
 
-print("Spreading Unihan columns...")
-dataframe = spread_unihan(dataframe)
-print("Encoding Unicode notations...")
-dataframe = extract_encode_glyph_columns(dataframe)
-print("Splitting radical column...")
-dataframe = split_radical_additional_strokes_column(dataframe)
-
-
-print("Reading HSK files...")
-hsk_table = read_all_hsk_files()
-print("Merging Unihan with HSK dataframe...")
-dataframe = merge_unihan_hsk(dataframe, hsk_table=hsk_table)
+dataframe = load_data()
 
 dataframe.sort_values(
     ["hsk_level", "kFrequency", "additional_strokes", "radical"], inplace=True
