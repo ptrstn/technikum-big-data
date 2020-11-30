@@ -4,7 +4,7 @@ import pynlpir
 import srt
 import wikipedia
 
-pynlpir.open()
+pynlpir.open(encoding_errors="ignore")
 
 
 def segment_text(text) -> pandas.DataFrame():
