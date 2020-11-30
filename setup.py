@@ -16,7 +16,6 @@ setup(
         "plotnine",
         "pynlpir",
         "wikipedia",
-        "setup",
     ],
     entry_points={"console_scripts": ["bigchina=bigchina.__main__:main"]},
 )
