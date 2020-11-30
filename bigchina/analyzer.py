@@ -1,3 +1,4 @@
+import numpy
 import pandas
 import pynlpir
 import srt
@@ -9,6 +10,8 @@ pynlpir.open()
 def segment_text(text) -> pandas.DataFrame():
     segments = pynlpir.segment(text)
     df = pandas.DataFrame(segments, columns=["segment", "characteristic"])
+    df.segment = df.segment.str.strip()
+    df = df[df.segment != ""]
     df["is_punctuation"] = df.characteristic == "punctuation mark"
     df.loc[df["is_punctuation"], "sentence"] = list(
         range(1, len(df.loc[df["is_punctuation"]]) + 1)
@@ -41,3 +44,11 @@ def segment_subtitle(text):
             ]
         )
     )
+
+
+def rolling_unique_count(dataframe, column):
+    unique_name = f"rolling_unique_{column}_count"
+    dataframe = dataframe.reset_index(drop=True)
+    factorized = pandas.Series(dataframe[column].factorize()[0])
+    dataframe[unique_name] = factorized.expanding().apply(lambda x: len(numpy.unique(x))).astype("int64")
+    return dataframe
