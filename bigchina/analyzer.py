@@ -1,5 +1,6 @@
 import pandas
 import pynlpir
+import srt
 import wikipedia
 
 pynlpir.open()
@@ -23,3 +24,20 @@ def segment_wikipedia_article(title, language="zh"):
     wikipedia.set_lang(language)
     article = wikipedia.page(title)
     return segment_text(article.content)
+
+
+def segment_subtitle_file(path):
+    with open(path, "r", encoding="utf-8") as file:
+        return segment_subtitle(file.read())
+
+
+def segment_subtitle(text):
+    return segment_text(
+        ". ".join(
+            [
+                element.content
+                for element in list(srt.parse(text))
+                if element.content.isprintable()
+            ]
+        )
+    )
