@@ -12,7 +12,7 @@ setup(
         "pyprojroot",
         "jupyter",
         "ipython",
-        "matplotlib",
+        "matplotlib>3.3",
         "plotnine",
         "pynlpir",
         "wikipedia",
