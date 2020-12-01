@@ -49,6 +49,5 @@ def segment_subtitle(text):
 def rolling_unique_count(dataframe, column):
     unique_name = f"rolling_unique_{column}_count"
     dataframe = dataframe.reset_index(drop=True)
-    factorized = pandas.Series(dataframe[column].factorize()[0])
-    dataframe[unique_name] = factorized.expanding().apply(lambda x: len(numpy.unique(x))).astype("int64")
+    dataframe[unique_name] = (~dataframe[column].duplicated()).cumsum()
     return dataframe
