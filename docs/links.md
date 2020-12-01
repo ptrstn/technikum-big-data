@@ -30,3 +30,8 @@ https://pageviews.toolforge.org/topviews/?project=zh-yue.wikipedia.org&platform=
 
 Top 100 Chinese Movies:
 - https://www.imdb.com/list/ls064849128/
+
+- https://www.kesci.com/mw/dataset/5e6382164b7a30002c98c62c
+- https://github.com/liuhuanyong/MusicLyricChatbot
+- https://catalog.ldc.upenn.edu/LDC95T13
+- https://lionbridge.ai/datasets/14-best-chinese-language-datasets-for-machine-learning/
