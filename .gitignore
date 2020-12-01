@@ -1,5 +1,6 @@
 data/unihan
 data/unihan.csv
+data/lyrics
 __pycache__/
 *.egg-info/
 venv/
