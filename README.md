@@ -30,9 +30,16 @@ Possible questions that can be answered and visualized are the following:
 git clone https://github.com/ptrstn/technikum-big-data
 cd technikum-big-data
 pip install -e .
+pynlpir update
 ```
 
-## Run
+## Run Notebooks
+
+```bash
+jupyter notebook
+```
+
+## Run Command Line Script
 
 ```bash
 bigchina
