@@ -3,12 +3,12 @@ from setuptools import setup
 
 setup(
     name="bigchina",
-    version="0.0.2",
+    version="0.0.3",
     url="http://github.com/ptrstn/technikum-big-data",
     packages=["bigchina"],
     install_requires=[
         "requests",
-        "pandas",
+        "pandas>1.1",
         "pyprojroot",
         "jupyter",
         "ipython",
