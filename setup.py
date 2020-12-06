@@ -17,6 +17,9 @@ setup(
         "pynlpir",
         "wikipedia",
         "srt",
+        'sklearn',
+        'PyQt5',
+        "folium",
     ],
     entry_points={"console_scripts": ["bigchina=bigchina.__main__:main"]},
 )

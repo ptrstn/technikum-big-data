@@ -35,3 +35,7 @@ Top 100 Chinese Movies:
 - https://github.com/liuhuanyong/MusicLyricChatbot
 - https://catalog.ldc.upenn.edu/LDC95T13
 - https://lionbridge.ai/datasets/14-best-chinese-language-datasets-for-machine-learning/
+
+- https://rosenfelder.ai/create-maps-with-python/
+- https://medium.com/datadriveninvestor/weighted-k-means-clustering-of-gps-coordinates-python-7c6270846163
+- https://chih-ling-hsu.github.io/2018/01/02/clustering-python
